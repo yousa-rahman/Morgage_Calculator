@@ -11,6 +11,7 @@ public class Main {
         final int PERCENTAGE = 100;
         int principal;
         float monthlyInterestRate;
+        float period;
 
 	    Scanner scanner = new Scanner(System.in);
 
@@ -35,9 +36,20 @@ public class Main {
             System.out.println("Enter a number between 1 and 30");
         }
 
+        while(true){
+            System.out.print("Period (Years) 1000:");
+            period = scanner.nextByte() * MONTHS_IN_A_YEAR;
 
-        System.out.print("Period (Years) 1000:");
-        float period = scanner.nextByte() * MONTHS_IN_A_YEAR;
+            if(period >= 1 && period <= 30)
+                break;
+
+            System.out.println("Enter a number between 1 and 30");
+
+        }
+
+
+
+
 
         double mortgage = principal * (monthlyInterestRate * ((Math.pow((1+monthlyInterestRate),period)))/((Math.pow((1+monthlyInterestRate),period)) - 1));
 
